@@ -7,6 +7,8 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        title: const Text('Search'),
         leading: const Icon(Icons.arrow_back_ios),
         actions: const [Icon(Icons.info)],
       ),
