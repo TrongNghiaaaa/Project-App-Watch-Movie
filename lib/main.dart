@@ -1,5 +1,6 @@
 import 'package:app_watch_movie/presentation/screens/search/search_screen.dart';
 import 'package:app_watch_movie/presentation/screens/splash/splash_screen.dart';
+import 'package:app_watch_movie/root.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const SearchScreen(),
+      home: const SplashScreen(),
     );
   }
 }

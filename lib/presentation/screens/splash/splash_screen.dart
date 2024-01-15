@@ -1,3 +1,4 @@
+import 'package:app_watch_movie/root.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -26,9 +27,11 @@ class SplashScreen extends StatelessWidget {
               height: 50,
             ),
             SizedBox(
-              width: 100,
+              width: 200,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const Root(), transition: Transition.upToDown);
+                  },
                   child: const Icon(
                     Icons.arrow_forward,
                     color: Colors.red,
