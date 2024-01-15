@@ -1,5 +1,5 @@
-import 'package:app_watch_movie/presentation/screens/search_screen/search_screen.dart';
-import 'package:app_watch_movie/presentation/screens/splash_screen/splash_screen.dart';
+import 'package:app_watch_movie/presentation/screens/search/search_screen.dart';
+import 'package:app_watch_movie/presentation/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
+            titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
             backgroundColor: Color(0xff242A32),
             iconTheme: IconThemeData(color: Colors.white),
             centerTitle: true),
