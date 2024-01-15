@@ -7,14 +7,23 @@ class Home_screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(children: [
-          const Text(
-            "What do you want to watch?",
-            style: TextStyle(fontSize: 18, fontStyle: FontStyle.normal),
-          ),
-          Center(
-            child: Container(
-              width: 327,
+        body: Padding(
+          padding: const EdgeInsets.only(right: 30, left: 30),
+          child: Column(children: [
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(top: 7),
+                child: Text(
+                  "What do you want to watch?",
+                  style: TextStyle(fontSize: 18, fontStyle: FontStyle.normal),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
               height: 42,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
@@ -40,9 +49,9 @@ class Home_screen extends StatelessWidget {
                       ),
                     )
                   ]),
-            ),
-          )
-        ]),
+            )
+          ]),
+        ),
       ),
     );
   }
