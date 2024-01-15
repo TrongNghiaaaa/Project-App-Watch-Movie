@@ -18,10 +18,22 @@ class SplashScreen extends StatelessWidget {
           children: [
             Lottie.asset(
               'assets/images/Animation - 1705290275566.json',
-              width: 200,
-              height: 200,
+              width: 300,
+              height: 300,
               fit: BoxFit.fill,
             ),
+            const SizedBox(
+              height: 50,
+            ),
+            SizedBox(
+              width: 100,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.red,
+                  )),
+            )
           ],
         ),
       )),

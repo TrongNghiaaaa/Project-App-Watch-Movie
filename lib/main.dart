@@ -1,3 +1,4 @@
+import 'package:app_watch_movie/presentation/screens/search_screen/search_screen.dart';
 import 'package:app_watch_movie/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xff242A32),
+            iconTheme: IconThemeData(color: Colors.white),
+            centerTitle: true),
+        iconTheme: const IconThemeData(color: Colors.white),
+        primaryIconTheme: const IconThemeData(color: Colors.white),
         textTheme: const TextTheme(
           bodyLarge: TextStyle(
               color: Colors.white), // Áp dụng cho nội dung chính của ứng dụng
@@ -23,10 +30,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xff242A32),
         // colorSchemeSeed: const Color(0xff242A32),
         fontFamily: 'Poppins',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const SearchScreen(),
     );
   }
 }
