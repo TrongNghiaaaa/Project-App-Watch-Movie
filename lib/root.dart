@@ -19,7 +19,7 @@ class _RootState extends State<Root> {
       body: IndexedStack(
         index: indexSelected,
         children: const [
-          Home_screen(),
+          HomeScreen(),
           SearchScreen(),
           Center(
             child: Text("Wish list here"),
