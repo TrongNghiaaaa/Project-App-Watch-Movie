@@ -1,3 +1,4 @@
+import 'package:app_watch_movie/presentation/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -50,9 +51,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-              style: TextStyle(fontFamily: 'Poppins'),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const Home_screen(),
+                    ));
+              },
+              child: const Text(
+                'You have pushed the button this many times:',
+                style: TextStyle(fontFamily: 'Poppins'),
+              ),
             ),
             Text(
               '$_counter',
