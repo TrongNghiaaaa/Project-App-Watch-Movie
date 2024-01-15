@@ -3,6 +3,8 @@ import 'package:app_watch_movie/presentation/screens/splash_screen/splash_screen
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'presentation/screens/home/home_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const Home_screen(),
+      home: const HomeScreen(),
     );
   }
 }

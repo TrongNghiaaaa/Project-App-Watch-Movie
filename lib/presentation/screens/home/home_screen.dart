@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class Home_screen extends StatelessWidget {
-  const Home_screen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +51,28 @@ class Home_screen extends StatelessWidget {
                     )
                   ]),
             ),
-            const Stack(
-              children: [],
+            Stack(
+              children: [
+                Container(
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(16)),
+                    height: 210,
+                    width: 144.61,
+                    child: Image.asset(
+                      "assets/images/movie-1.png",
+                      fit: BoxFit.cover,
+                    )),
+                const Positioned(
+                  bottom: 0,
+                  left: 0,
+                  child: Text(
+                    "1",
+                    style: TextStyle(
+                      fontSize: 96,
+                    ),
+                  ),
+                )
+              ],
             )
           ]),
         ),
