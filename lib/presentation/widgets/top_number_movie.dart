@@ -16,6 +16,7 @@ class TopNumberMovie extends StatelessWidget {
         '1',
         style: TextStyle(
           fontSize: 90,
+          fontWeight: FontWeight.bold,
           foreground: Paint()
             ..style = PaintingStyle.stroke
             ..strokeWidth = 1
@@ -26,6 +27,7 @@ class TopNumberMovie extends StatelessWidget {
         '1',
         style: TextStyle(
           fontSize: 90,
+          fontWeight: FontWeight.bold,
           color: Color(0xff242A32),
         ),
       ),

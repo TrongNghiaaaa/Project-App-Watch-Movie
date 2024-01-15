@@ -35,7 +35,7 @@ class SearchScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              SearchWidget(),
+              // SearchWidget(),
               TopNumberMovie(
                 size: 90,
                 number: '1',
