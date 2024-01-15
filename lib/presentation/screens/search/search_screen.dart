@@ -1,3 +1,5 @@
+import 'package:app_watch_movie/presentation/screens/search/components/content_row.dart';
+import 'package:app_watch_movie/presentation/screens/search/components/movie_infomation.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
 import 'package:flutter/material.dart';
@@ -35,34 +37,51 @@ class SearchScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              // SearchWidget(),
-              TopNumberMovie(
-                size: 90,
-                number: '1',
+              SearchWidget(),
+              SizedBox(
+                height: 15,
+              ),
+              MovieInfomation(
+                posterImageUrl: "assets/images/spiderman.png",
+                nameMovie: 'SpiderMan',
+                category: "Action",
+                year: '2019',
+                numberOfstar: '9.5',
+                time: '139 minutes',
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              MovieInfomation(
+                posterImageUrl: "assets/images/nowayhome.jpg",
+                nameMovie: 'No Way Home',
+                category: "Action",
+                year: '2023',
+                numberOfstar: '9.5',
+                time: '139 minutes',
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              MovieInfomation(
+                posterImageUrl: "assets/images/s-l1200.jpg",
+                nameMovie: 'Infinity War',
+                category: "Action",
+                year: '2023',
+                numberOfstar: '9',
+                time: '100 minutes',
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              MovieInfomation(
+                posterImageUrl: "assets/images/FTe6Z_MVEAArAVK.jpg",
+                nameMovie: 'Thor',
+                category: "Action",
+                year: '2023',
+                numberOfstar: '9',
+                time: '100 minutes',
               )
-              // Stack(
-              //   children: [
-              //     Image.asset("assets/images/movie-2.png"),
-              //     Container(
-              //       padding: EdgeInsets.zero, // Padding cho nút
-              //       decoration: BoxDecoration(
-              //         border: Border.all(color: Colors.blue),
-              //         borderRadius: BorderRadius.circular(8.0), // Góc bo tròn
-              //       ),
-              //       child:  Text(
-              //         '1',
-              //         style: TextStyle(
-              //           fontSize: 50,
-              //           color: Colors.white,
-              //           foreground: Paint()
-              //             ..style = PaintingStyle.stroke
-              //             ..strokeWidth = 4
-              //             ..color = Colors.orangeAccent,
-              //         ),
-              //       ),
-              //     )
-              //   ],
-              // )
             ],
           ),
         ),
