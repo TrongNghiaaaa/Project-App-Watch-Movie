@@ -49,6 +49,9 @@ class Home_screen extends StatelessWidget {
                       ),
                     )
                   ]),
+            ),
+            const Stack(
+              children: [],
             )
           ]),
         ),
