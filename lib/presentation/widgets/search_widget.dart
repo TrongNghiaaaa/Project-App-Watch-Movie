@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SearchWidget extends StatelessWidget {
+  final String textLabel;
   const SearchWidget({
     super.key,
+    required this.textLabel,
   });
 
   @override
@@ -15,21 +17,21 @@ class SearchWidget extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: const Color(0xff3A3F47)),
-      child: const TextField(
+      child: TextField(
         decoration: InputDecoration(
-          contentPadding: EdgeInsetsDirectional.symmetric(vertical: 10),
-          border: OutlineInputBorder(
+          contentPadding: const EdgeInsetsDirectional.symmetric(vertical: 10),
+          border: const OutlineInputBorder(
             borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
           ),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
           ),
-          hintText: "SpiderMan",
-          hintStyle: TextStyle(color: Colors.white),
-          suffixIcon: Icon(
+          hintText: textLabel,
+          hintStyle: const TextStyle(color: Colors.white),
+          suffixIcon: const Icon(
             Icons.search,
             color: Color(0xff67686D),
             size: 25,

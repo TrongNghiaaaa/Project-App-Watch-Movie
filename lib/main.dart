@@ -4,6 +4,8 @@ import 'package:app_watch_movie/root.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'presentation/screens/home/home_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }

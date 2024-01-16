@@ -73,8 +73,8 @@ class SearchScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const SearchWidget(),
-              const SizedBox(
+              // SearchWidget(),
+              SizedBox(
                 height: 15,
               ),
               if (listMovies.isNotEmpty)

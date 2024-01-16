@@ -1,16 +1,22 @@
+import 'package:app_watch_movie/presentation/screens/home/component/postercard.dart';
+import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
+import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class Home_screen extends StatelessWidget {
-  const Home_screen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.only(right: 30, left: 30),
+          padding: const EdgeInsets.only(right: 30, left: 30),
           child: Column(children: [
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(top: 7),
@@ -20,12 +26,19 @@ class Home_screen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            SearchBar(),
-            Stack(
-              children: [],
+            const SearchWidget(
+              textLabel: 'Search',
+            ),
+            Flexible(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemBuilder: (context, index) => const PosterCard(),
+                itemCount: 5,
+              ),
             )
           ]),
         ),
