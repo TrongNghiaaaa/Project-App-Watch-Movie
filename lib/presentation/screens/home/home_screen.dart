@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.only(top: 7),
                 child: Text(
                   "What do you want to watch?",
-                  style: TextStyle(fontSize: 18, fontStyle: FontStyle.normal),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -32,12 +32,20 @@ class HomeScreen extends StatelessWidget {
             const SearchWidget(
               textLabel: 'Search',
             ),
-            Flexible(
+            SizedBox(
+              height: 220,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemBuilder: (context, index) => const PosterCard(),
-                itemCount: 5,
+                itemBuilder: (context, index) => Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+                  child: PosterCard(
+                    numberCount: listPosterCard[index]["number"],
+                    urlImage: listPosterCard[index]["urlImage"],
+                  ),
+                ),
+                itemCount: listPosterCard.length,
               ),
             )
           ]),
@@ -46,3 +54,12 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+List listPosterCard = [
+  {"urlImage": "assets/images/1.png", "number": "1"},
+  {"urlImage": "assets/images/2.png", "number": "2"},
+  {"urlImage": "assets/images/3.png", "number": "3"},
+  {"urlImage": "assets/images/4.png", "number": "4"},
+  {"urlImage": "assets/images/5.png", "number": "5"},
+  {"urlImage": "assets/images/6.png", "number": "6"},
+];
