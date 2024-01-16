@@ -1,13 +1,30 @@
+import 'package:app_watch_movie/configs/constant.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercard.dart';
+import 'package:app_watch_movie/presentation/screens/home/component/postercardtabbar.dart';
+import 'package:app_watch_movie/presentation/screens/home/component/tabbar_now_playing.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
   });
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  @override
+  void initState() {
+    _tabController = TabController(length: 4, vsync: this);
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,19 +64,46 @@ class HomeScreen extends StatelessWidget {
                 ),
                 itemCount: listPosterCard.length,
               ),
-            )
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            TabBar(
+              labelStyle: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+              indicatorSize:
+                  TabBarIndicatorSize.label, // Set kích thước của indicator
+              labelPadding: const EdgeInsets.symmetric(horizontal: 8.0),
+              controller: _tabController,
+              labelColor: Colors.white,
+              indicatorColor: Colors.grey,
+              unselectedLabelStyle: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+
+              dividerHeight: 0,
+              tabs: const [
+                Tab(text: 'Now playing'),
+                Tab(text: 'Upcoming'),
+                Tab(text: 'Top rated'),
+                Tab(text: 'Popular'),
+              ],
+            ),
+            Flexible(
+              child: TabBarView(
+                controller: _tabController,
+                children: const [
+                  // Nội dung của Tab 1
+                  TabBarNowPlaying(),
+                  TabBarNowPlaying(),
+                  TabBarNowPlaying(),
+                  TabBarNowPlaying(),
+                  // Nội dung của Tab 2
+                ],
+              ),
+            ),
           ]),
         ),
       ),
     );
   }
 }
-
-List listPosterCard = [
-  {"urlImage": "assets/images/1.png", "number": "1"},
-  {"urlImage": "assets/images/2.png", "number": "2"},
-  {"urlImage": "assets/images/3.png", "number": "3"},
-  {"urlImage": "assets/images/4.png", "number": "4"},
-  {"urlImage": "assets/images/5.png", "number": "5"},
-  {"urlImage": "assets/images/6.png", "number": "6"},
-];
