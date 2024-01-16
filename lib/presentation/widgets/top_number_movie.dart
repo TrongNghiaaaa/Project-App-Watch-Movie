@@ -13,7 +13,7 @@ class TopNumberMovie extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Text(
-        '1',
+        number,
         style: TextStyle(
           fontSize: 90,
           fontWeight: FontWeight.bold,
@@ -23,9 +23,9 @@ class TopNumberMovie extends StatelessWidget {
             ..color = const Color(0xff0296E5),
         ),
       ),
-      const Text(
-        '1',
-        style: TextStyle(
+      Text(
+        number,
+        style: const TextStyle(
           fontSize: 90,
           fontWeight: FontWeight.bold,
           color: Color(0xff242A32),
