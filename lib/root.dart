@@ -1,6 +1,7 @@
 import 'package:app_watch_movie/configs/constant.dart';
 import 'package:app_watch_movie/presentation/screens/home/home_screen.dart';
 import 'package:app_watch_movie/presentation/screens/search/search_screen.dart';
+import 'package:app_watch_movie/presentation/watch%20list/watch_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
