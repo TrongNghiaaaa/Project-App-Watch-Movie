@@ -1,3 +1,4 @@
+import 'package:app_watch_movie/configs/constant.dart';
 import 'package:app_watch_movie/presentation/screens/search/components/content_row.dart';
 import 'package:app_watch_movie/presentation/widgets/movie_infomation.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
@@ -6,41 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-List listMovies = [
-  {
-    "posterImageUrl": "assets/images/spiderman.png",
-    "nameMovie": 'SpiderMan',
-    "category": "Action",
-    "year": '2019',
-    "numberOfstar": '9.5',
-    "time": '139 minutes',
-  },
-  {
-    "posterImageUrl": "assets/images/nowayhome.jpg",
-    "nameMovie": 'No Way Home',
-    "category": "Action",
-    "year": '2023',
-    "numberOfstar": '9.5',
-    "time": '139 minutes',
-  },
-  {
-    "posterImageUrl": "assets/images/s-l1200.jpg",
-    "nameMovie": 'Infinity War',
-    "category": "Action",
-    "year": '2023',
-    "numberOfstar": '9',
-    "time": '100 minutes',
-  },
-  {
-    "posterImageUrl": "assets/images/FTe6Z_MVEAArAVK.jpg",
-    "nameMovie": 'Thor',
-    "category": "Action",
-    "year": '2023',
-    "numberOfstar": '9',
-    "time": '100 minutes',
-  }
-];
-List listMovieEmpty = [];
+
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -74,8 +41,12 @@ class SearchScreen extends StatelessWidget {
                 height: 20,
               ),
               // SearchWidget(),
-              SizedBox(
+              const SizedBox(
                 height: 15,
+              ),
+              const SearchWidget(textLabel: "Search"),
+              const SizedBox(
+                height: 25,
               ),
               if (listMovies.isNotEmpty)
                 ListView.builder(
@@ -114,48 +85,6 @@ class SearchScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
-              // MovieInfomation(
-              //   posterImageUrl: "assets/images/spiderman.png",
-              //   nameMovie: 'SpiderMan',
-              //   category: "Action",
-              //   year: '2019',
-              //   numberOfstar: '9.5',
-              //   time: '139 minutes',
-              // ),
-              // SizedBox(
-              //   height: 25,
-              // ),
-              // MovieInfomation(
-              //   posterImageUrl: "assets/images/nowayhome.jpg",
-              //   nameMovie: 'No Way Home',
-              //   category: "Action",
-              //   year: '2023',
-              //   numberOfstar: '9.5',
-              //   time: '139 minutes',
-              // ),
-              // SizedBox(
-              //   height: 25,
-              // ),
-              // MovieInfomation(
-              //   posterImageUrl: "assets/images/s-l1200.jpg",
-              //   nameMovie: 'Infinity War',
-              //   category: "Action",
-              //   year: '2023',
-              //   numberOfstar: '9',
-              //   time: '100 minutes',
-              // ),
-              // SizedBox(
-              //   height: 25,
-              // ),
-              // MovieInfomation(
-              //   posterImageUrl: "assets/images/FTe6Z_MVEAArAVK.jpg",
-              //   nameMovie: 'Thor',
-              //   category: "Action",
-              //   year: '2023',
-              //   numberOfstar: '9',
-              //   time: '100 minutes',
-              // )
             ],
           ),
         ),

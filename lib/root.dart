@@ -19,13 +19,7 @@ class _RootState extends State<Root> {
     return Scaffold(
       body: IndexedStack(
         index: indexSelected,
-        children: const [
-          HomeScreen(),
-          SearchScreen(),
-          Center(
-            child: Text("Wish list here"),
-          )
-        ],
+        children: const [HomeScreen(), SearchScreen(), WatchListScreen()],
       ),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (value) => setState(() {
