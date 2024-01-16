@@ -30,7 +30,7 @@ class SearchWidget extends StatelessWidget {
             borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
           ),
           hintText: textLabel,
-          hintStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.grey),
           suffixIcon: const Icon(
             Icons.search,
             color: Color(0xff67686D),
