@@ -48,7 +48,7 @@ class SearchScreen extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              if (listMovies.isNotEmpty)
+              if (listMovieEmpty.isNotEmpty)
                 Flexible(
                   child: ListView.builder(
                     itemCount: listMovies.length,
