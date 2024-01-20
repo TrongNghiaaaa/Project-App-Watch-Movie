@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-
-
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
@@ -48,19 +46,20 @@ class SearchScreen extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              if (listMovies.isNotEmpty)
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: listMovies.length,
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.only(bottom: 25),
-                    child: MovieInfomation(
-                        nameMovie: listMovies[index]["nameMovie"],
-                        numberOfstar: listMovies[index]["numberOfstar"],
-                        category: listMovies[index]["category"],
-                        year: listMovies[index]["year"],
-                        time: listMovies[index]["time"],
-                        posterImageUrl: listMovies[index]["posterImageUrl"]),
+              if (listMovieEmpty.isNotEmpty)
+                Flexible(
+                  child: ListView.builder(
+                    itemCount: listMovies.length,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(bottom: 25),
+                      child: MovieInfomation(
+                          nameMovie: listMovies[index]["nameMovie"],
+                          numberOfstar: listMovies[index]["numberOfstar"],
+                          category: listMovies[index]["category"],
+                          year: listMovies[index]["year"],
+                          time: listMovies[index]["time"],
+                          posterImageUrl: listMovies[index]["posterImageUrl"]),
+                    ),
                   ),
                 )
               else

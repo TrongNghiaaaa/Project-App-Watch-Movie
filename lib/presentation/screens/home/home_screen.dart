@@ -1,4 +1,5 @@
 import 'package:app_watch_movie/configs/constant.dart';
+import 'package:app_watch_movie/presentation/screens/details/details_screens.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercard.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercardtabbar.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbar_now_playing.dart';
@@ -6,6 +7,7 @@ import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -57,9 +59,23 @@ class _HomeScreenState extends State<HomeScreen>
                 itemBuilder: (context, index) => Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
-                  child: PosterCard(
-                    numberCount: listPosterCard[index]["number"],
-                    urlImage: listPosterCard[index]["urlImage"],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    DetailsScreens(
+                              urlImageDetails: listPosterCard[index]
+                                  ["urlImage"],
+                            ),
+                          ));
+                    },
+                    child: PosterCard(
+                      numberCount: listPosterCard[index]["number"],
+                      urlImage: listPosterCard[index]["urlImage"],
+                    ),
                   ),
                 ),
                 itemCount: listPosterCard.length,

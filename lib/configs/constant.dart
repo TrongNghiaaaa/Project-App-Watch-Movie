@@ -52,3 +52,9 @@ List listPosterCard = [
   {"urlImage": "assets/images/11.png", "number": "11"},
   {"urlImage": "assets/images/12.png", "number": "12"},
 ];
+List listUrlImageCast = [
+  {"urlImageCast": "assets/images/cast1.png", "name": "Tom Holland"},
+  {"urlImageCast": "assets/images/cast2.png", "name": "Zendaya"},
+  {"urlImageCast": "assets/images/cast3.png", "name": "Benedict Cumberbatch"},
+  {"urlImageCast": "assets/images/cast4.png", "name": "Brad Pitt"},
+];
