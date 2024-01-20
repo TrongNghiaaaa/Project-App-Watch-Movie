@@ -58,3 +58,33 @@ List listUrlImageCast = [
   {"urlImageCast": "assets/images/cast3.png", "name": "Benedict Cumberbatch"},
   {"urlImageCast": "assets/images/cast4.png", "name": "Brad Pitt"},
 ];
+List listUrlPersonalReviewsDetails = [
+  {
+    "urlImageAvatar": "assets/images/cast1.png",
+    "rate": "6.3",
+    "name": "Brad Pitt",
+    "comment":
+        "From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government.",
+  },
+  {
+    "urlImageAvatar": "assets/images/cast2.png",
+    "rate": "6.3",
+    "name": "Benedict Cumberbatch",
+    "comment":
+        "From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government."
+  },
+  {
+    "urlImageAvatar": "assets/images/cast3.png",
+    "rate": "6.3",
+    "name": "Zendaya",
+    "comment":
+        "From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government."
+  },
+  {
+    "urlImageAvatar": "assets/images/cast4.png",
+    "rate": "6.3",
+    "name": "Tom Holland",
+    "comment":
+        "From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government."
+  },
+];
