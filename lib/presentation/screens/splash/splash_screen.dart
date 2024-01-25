@@ -1,7 +1,10 @@
+import 'package:app_watch_movie/controller/get_nowplaying_movie_controller.dart';
+import 'package:app_watch_movie/controller/get_popular_movie_controller.dart';
 import 'package:app_watch_movie/root.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -9,6 +12,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(NowPlayingController());
+    Get.put(PopularMovieController());
     return Scaffold(
       body: SafeArea(
           child: SizedBox(
