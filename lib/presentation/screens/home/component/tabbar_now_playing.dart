@@ -1,6 +1,9 @@
 import 'package:app_watch_movie/configs/constant.dart';
+import 'package:app_watch_movie/controller/get_nowplaying_movie_controller.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercardtabbar.dart';
+import 'package:app_watch_movie/styles/Image_styles/ui_data.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TabBarNowPlaying extends StatelessWidget {
   const TabBarNowPlaying({
@@ -9,6 +12,8 @@ class TabBarNowPlaying extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NowPlayingController getNowPlayingController = Get.find();
+
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: SizedBox(
@@ -24,10 +29,13 @@ class TabBarNowPlaying extends StatelessWidget {
             height: 146,
             width: 100,
             child: PosterCardTabBar(
-              urlImagetabber: listPosterCard[index]["urlImage"],
+              urlImagetabber:
+                  "${UIData.urlImageOriginal}${getNowPlayingController.listNowPlaying.value.results[index].backdropPath}",
+              // urlImagetabber: listPosterCard[index]["urlImage"],
             ),
           ),
-          itemCount: listPosterCard.length,
+          itemCount:
+              getNowPlayingController.listNowPlaying.value.results.length,
         ),
       ),
     );

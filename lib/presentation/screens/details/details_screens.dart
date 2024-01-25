@@ -85,7 +85,7 @@ class _DetailsScreensState extends State<DetailsScreens>
             children: const [
               // Nội dung của Tab 1
               content_tabbar_details(),
-              Flexible(child: ReviewsDetails()),
+              ReviewsDetails(),
               ListCast()
 
               // Nội dung của Tab 2
