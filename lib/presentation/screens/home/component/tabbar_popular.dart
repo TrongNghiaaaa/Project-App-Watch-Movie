@@ -1,18 +1,21 @@
 import 'package:app_watch_movie/configs/constant.dart';
 import 'package:app_watch_movie/controller/get_nowplaying_movie_controller.dart';
+import 'package:app_watch_movie/controller/get_popular_movie_controller.dart';
+import 'package:app_watch_movie/data/models/popular_movie.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercardtabbar.dart';
 import 'package:app_watch_movie/styles/Image_styles/ui_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 
-class TabBarNowPlaying extends StatelessWidget {
-  const TabBarNowPlaying({
+class TabbarPopular extends StatelessWidget {
+  const TabbarPopular({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    NowPlayingController getNowPlayingController = Get.find();
+    PopularMovieController getPopularMovieController = Get.find();
 
     return Padding(
       padding: const EdgeInsets.only(top: 15),
@@ -30,12 +33,12 @@ class TabBarNowPlaying extends StatelessWidget {
             width: 100,
             child: PosterCardTabBar(
               urlImagetabber:
-                  "${UIData.urlImageOriginal}${getNowPlayingController.listNowPlaying.value.results[index].posterPath}",
+                  "${UIData.urlImageOriginal}${getPopularMovieController.listPopularMovie.value.results[index].posterPath}",
               // urlImagetabber: listPosterCard[index]["urlImage"],
             ),
           ),
           itemCount:
-              getNowPlayingController.listNowPlaying.value.results.length,
+              getPopularMovieController.listPopularMovie.value.results.length,
         ),
       ),
     );
