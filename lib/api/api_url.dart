@@ -8,4 +8,7 @@ class ApiUrl {
       'https://api.themoviedb.org/3/movie/popular?api_key=8f03d06674e31b92173c3506098450ee';
   static String apiGetNowPlaying =
       "https://api.themoviedb.org/3/movie/now_playing?api_key=8f03d06674e31b92173c3506098450ee";
+
+  static String apiSearchMovie =
+      "https://api.themoviedb.org/3/search/movie?api_key=e9e9d8da18ae29fc430845952232787c&language=en-US&page=1&include_adult=false&language=en-US&page=1&query=";
 }

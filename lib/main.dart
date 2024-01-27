@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:app_watch_movie/controller/movie_controller.dart';
 import 'package:get/get.dart';
 import 'package:app_watch_movie/controller/get_nowplaying_movie_controller.dart';
 import 'package:app_watch_movie/controller/get_popular_movie_controller.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return GetMaterialApp(
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),

@@ -2,6 +2,28 @@ import 'package:flutter/material.dart';
 
 const secondaryColor = Color(0xff0296E5);
 const primaryColor = Color(0xff242A32);
+InputDecoration InputDecorate(String hintText) {
+  return InputDecoration(
+    contentPadding:
+        const EdgeInsetsDirectional.symmetric(vertical: 10, horizontal: 20),
+    border: const OutlineInputBorder(
+      borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
+    ),
+    enabledBorder: const OutlineInputBorder(
+      borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
+    ),
+    focusedBorder: const OutlineInputBorder(
+      borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
+    ),
+    hintText: hintText,
+    hintStyle: const TextStyle(color: Colors.grey),
+    suffixIcon: const Icon(
+      Icons.search,
+      color: Color(0xff67686D),
+      size: 25,
+    ),
+  );
+}
 
 List listMovies = [
   {

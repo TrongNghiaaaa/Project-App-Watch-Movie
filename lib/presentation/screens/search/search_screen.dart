@@ -1,17 +1,24 @@
 import 'package:app_watch_movie/configs/constant.dart';
+import 'package:app_watch_movie/controller/movie_controller.dart';
 import 'package:app_watch_movie/presentation/screens/search/components/content_row.dart';
 import 'package:app_watch_movie/presentation/widgets/movie_infomation.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
+import 'package:app_watch_movie/styles/Image_styles/ui_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
+
+import '../../../data/models/search_response.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    MovieController moviewController = Get.find();
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -43,12 +50,59 @@ class SearchScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-
-              const SearchWidget(textLabel: "Search"),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: const Color(0xff3A3F47)),
+                child: TypeAheadField<MovieResult>(
+                  hideWithKeyboard: false,
+                  suggestionsCallback: (search) async {
+                    final x =
+                        await moviewController.searchMovie(search: search);
+                    return x;
+                  },
+                  builder: (context, controller, focusNode) {
+                    return Flexible(
+                      child: TextField(
+                          controller: controller,
+                          focusNode: focusNode,
+                          decoration: InputDecorate("Search")),
+                    );
+                  },
+                  itemBuilder: (context, movie) {
+                    return ListTile(
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: movie.posterPath != null
+                            ? CachedNetworkImage(
+                                imageUrl:
+                                    UIData.urlImageOriginal + movie.posterPath!,
+                                placeholder: (context, url) =>
+                                    const CircularProgressIndicator.adaptive(),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.error),
+                                fit: BoxFit.cover,
+                              )
+                            : const SizedBox(),
+                      ),
+                      title: Text(movie.title,
+                          style: const TextStyle(fontWeight: FontWeight.w600)),
+                      subtitle: Text(movie.releaseDate),
+                    );
+                  },
+                  onSelected: (city) {
+                    // Navigator.of(context).push<void>(
+                    //   MaterialPageRoute(
+                    //     builder: (context) => CityPage(city: city),
+                    //   ),
+                    // );
+                  },
+                ),
+              ),
               const SizedBox(
                 height: 25,
               ),
-              if (listMovieEmpty.isNotEmpty)
+              if (listMovies.isNotEmpty)
                 Flexible(
                   child: ListView.builder(
                     itemCount: listMovies.length,

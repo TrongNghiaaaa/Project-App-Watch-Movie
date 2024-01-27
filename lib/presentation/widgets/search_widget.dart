@@ -1,3 +1,4 @@
+import 'package:app_watch_movie/configs/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,26 +19,10 @@ class SearchWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: const Color(0xff3A3F47)),
       child: TextField(
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsetsDirectional.symmetric(vertical: 10),
-          border: const OutlineInputBorder(
-            borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
-          ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none, // Đặt borderSide thành BorderSide.none
-          ),
-          hintText: textLabel,
-          hintStyle: const TextStyle(color: Colors.grey),
-          suffixIcon: const Icon(
-            Icons.search,
-            color: Color(0xff67686D),
-            size: 25,
-          ),
-        ),
+        decoration: InputDecorate("search"),
       ),
     );
   }
+
+
 }

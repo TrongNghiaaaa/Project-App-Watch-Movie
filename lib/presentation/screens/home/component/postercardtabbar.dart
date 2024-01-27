@@ -15,7 +15,8 @@ class PosterCardTabBar extends StatelessWidget {
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         child: CachedNetworkImage(
           imageUrl: urlImagetabber,
-          placeholder: (context, url) => const CircularProgressIndicator(),
+          placeholder: (context, url) =>
+              const Center(child: CircularProgressIndicator.adaptive()),
           errorWidget: (context, url, error) => const Icon(Icons.error),
           fit: BoxFit.cover,
         ),
