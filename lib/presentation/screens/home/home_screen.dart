@@ -5,6 +5,8 @@ import 'package:app_watch_movie/presentation/screens/home/component/postercard.d
 import 'package:app_watch_movie/presentation/screens/home/component/postercardtabbar.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbar_now_playing.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbar_popular.dart';
+import 'package:app_watch_movie/presentation/screens/home/component/tabbarrated.dart';
+import 'package:app_watch_movie/presentation/screens/home/component/tabbarupcoming.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
 import 'package:app_watch_movie/styles/Image_styles/ui_data.dart';
@@ -117,9 +119,10 @@ class _HomeScreenState extends State<HomeScreen>
                 children: const [
                   // Nội dung của Tab 1
                   TabBarNowPlaying(),
+                  TabbarUpcomingMovie(),
+                  TabbarRatedMovie(),
                   TabbarPopular(),
-                  TabBarNowPlaying(),
-                  TabBarNowPlaying(),
+
                   // Nội dung của Tab 2
                 ],
               ),
