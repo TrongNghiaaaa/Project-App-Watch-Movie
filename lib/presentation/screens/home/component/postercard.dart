@@ -1,5 +1,8 @@
+import 'package:app_watch_movie/controller/get_trending_movie_controller.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PosterCard extends StatelessWidget {
   final String urlImage;
@@ -23,8 +26,11 @@ class PosterCard extends StatelessWidget {
               width: 145,
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(16)),
-              child: Image.asset(
-                urlImage,
+              child: CachedNetworkImage(
+                imageUrl: urlImage,
+                placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.cover,
               ),
             ),

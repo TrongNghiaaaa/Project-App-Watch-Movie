@@ -1,10 +1,13 @@
 import 'package:app_watch_movie/configs/constant.dart';
+import 'package:app_watch_movie/controller/get_trending_movie_controller.dart';
 import 'package:app_watch_movie/presentation/screens/details/details_screens.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercard.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercardtabbar.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbar_now_playing.dart';
+import 'package:app_watch_movie/presentation/screens/home/component/tabbar_popular.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
+import 'package:app_watch_movie/styles/Image_styles/ui_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -30,6 +33,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    TopTrendingMovieController trendingMovieController = Get.find();
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -73,12 +78,14 @@ class _HomeScreenState extends State<HomeScreen>
                           ));
                     },
                     child: PosterCard(
-                      numberCount: listPosterCard[index]["number"],
-                      urlImage: listPosterCard[index]["urlImage"],
+                      numberCount: "${index + 1}",
+                      urlImage:
+                          "${UIData.urlImageOriginal}${trendingMovieController.toptrendingmovie.value.results[index].posterPath}",
                     ),
                   ),
                 ),
-                itemCount: listPosterCard.length,
+                itemCount: trendingMovieController
+                    .toptrendingmovie.value.results.length,
               ),
             ),
             const SizedBox(
@@ -110,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen>
                 children: const [
                   // Nội dung của Tab 1
                   TabBarNowPlaying(),
-                  TabBarNowPlaying(),
+                  TabbarPopular(),
                   TabBarNowPlaying(),
                   TabBarNowPlaying(),
                   // Nội dung của Tab 2
