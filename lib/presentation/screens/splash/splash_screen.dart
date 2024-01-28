@@ -2,6 +2,7 @@ import 'package:app_watch_movie/configs/constant.dart';
 import 'package:app_watch_movie/controller/get_nowplaying_movie_controller.dart';
 import 'package:app_watch_movie/controller/get_popular_movie_controller.dart';
 import 'package:app_watch_movie/controller/get_trending_movie_controller.dart';
+import 'package:app_watch_movie/controller/get_upcoming_movie_controller.dart';
 import 'package:app_watch_movie/controller/movie_controller.dart';
 import 'package:app_watch_movie/presentation/widgets/loading_animation.dart';
 import 'package:app_watch_movie/root.dart';
@@ -17,6 +18,12 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(NowPlayingController());
+    Get.put(PopularMovieController());
+    Get.put(TopTrendingMovieController());
+    Get.put(MovieController());
+    Get.put(UpComingMovieController());
+
     return Scaffold(
       body: SafeArea(
           child: SizedBox(
