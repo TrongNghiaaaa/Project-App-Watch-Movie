@@ -22,11 +22,13 @@ class ContentRow extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        Text(content,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-            ))
+        Flexible(
+          child: Text(content,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+              )),
+        )
       ],
     );
   }

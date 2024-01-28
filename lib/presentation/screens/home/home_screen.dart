@@ -1,10 +1,12 @@
 import 'package:app_watch_movie/configs/constant.dart';
 import 'package:app_watch_movie/controller/get_trending_movie_controller.dart';
+import 'package:app_watch_movie/controller/movie_controller.dart';
 import 'package:app_watch_movie/presentation/screens/details/details_screens.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercard.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/postercardtabbar.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbar_now_playing.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbar_popular.dart';
+import 'package:app_watch_movie/presentation/widgets/search_autocomplete.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
 import 'package:app_watch_movie/styles/Image_styles/ui_data.dart';
@@ -34,9 +36,11 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     TopTrendingMovieController trendingMovieController = Get.find();
+    MovieController moviewController = Get.find();
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         body: Padding(
           padding: const EdgeInsets.only(right: 30, left: 30),
           child: Column(children: [
@@ -53,9 +57,7 @@ class _HomeScreenState extends State<HomeScreen>
             const SizedBox(
               height: 20,
             ),
-            const SearchWidget(
-              textLabel: 'Search',
-            ),
+            SearchAutocomplete(moviewController: moviewController),
             SizedBox(
               height: 220,
               child: ListView.builder(

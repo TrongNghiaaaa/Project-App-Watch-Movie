@@ -6,13 +6,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class MovieController extends GetxController {
-  Rx<List<MovieResult>>? listMovieSearch;
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-  }
-
+  RxList<MovieResult> listMovieSearch = <MovieResult>[].obs;
   Future<List<MovieResult>> searchMovie({required String search}) async {
     final url = Uri.parse(ApiUrl.apiSearchMovie + search);
     final response = await http.get(url);
@@ -23,7 +17,8 @@ class MovieController extends GetxController {
       final searchLower = search.toLowerCase();
       return nameLower.contains(searchLower);
     }).toList();
-    listMovieSearch?.value = kq;
+    print(kq);
+    listMovieSearch.value = kq;
     return kq;
   }
 }

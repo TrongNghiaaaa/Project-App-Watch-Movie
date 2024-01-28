@@ -10,18 +10,15 @@ class WatchListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: const Text('Watch list'),
-        leading: const Padding(
-          padding: EdgeInsets.only(left: 16),
-          child: Icon(Icons.arrow_back_ios),
-        ),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 40, top: 50),
           child: Column(children: [
-            if (listMovies.isNotEmpty)
+            if (listMovieEmpty.isNotEmpty)
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: listMovies.length,

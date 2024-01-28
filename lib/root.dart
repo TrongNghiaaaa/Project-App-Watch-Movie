@@ -2,8 +2,10 @@ import 'package:app_watch_movie/configs/constant.dart';
 import 'package:app_watch_movie/presentation/screens/home/home_screen.dart';
 import 'package:app_watch_movie/presentation/screens/search/search_screen.dart';
 import 'package:app_watch_movie/presentation/watch%20list/watch_list_screen.dart';
+import 'package:app_watch_movie/presentation/widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -22,9 +24,16 @@ class _RootState extends State<Root> {
         children: const [HomeScreen(), SearchScreen(), WatchListScreen()],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          onTap: (value) => setState(() {
-                indexSelected = value;
-              }),
+          onTap: (value) async {
+            showLoadingAnim(context);
+            await Future.delayed(
+              const Duration(milliseconds: 400),
+              () => Get.back(),
+            );
+            setState(() {
+              indexSelected = value;
+            });
+          },
           unselectedItemColor: Colors.white,
           currentIndex: indexSelected,
           selectedIconTheme: const IconThemeData(color: secondaryColor),

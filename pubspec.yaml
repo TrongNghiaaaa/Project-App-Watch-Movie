@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.6
   http: ^1.2.0
   lottie: ^3.0.0
+  google_fonts: ^6.1.0
   flutter_typeahead: ^5.0.2
 dev_dependencies:
   flutter_test:
