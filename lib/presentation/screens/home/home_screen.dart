@@ -8,6 +8,7 @@ import 'package:app_watch_movie/presentation/screens/home/component/tabbar_now_p
 import 'package:app_watch_movie/presentation/screens/home/component/tabbar_popular.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbarrated.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/tabbarupcoming.dart';
+import 'package:app_watch_movie/presentation/widgets/loading_animation.dart';
 import 'package:app_watch_movie/presentation/widgets/search_autocomplete.dart';
 import 'package:app_watch_movie/presentation/widgets/search_widget.dart';
 import 'package:app_watch_movie/presentation/widgets/top_number_movie.dart';
@@ -69,15 +70,20 @@ class _HomeScreenState extends State<HomeScreen>
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
                   child: GestureDetector(
-                    onTap: () {
+                    onTap: () async {
+                      MovieController controller = Get.find();
+                      showLoadingAnim(context);
+                      await controller.getDetailsMovie(trendingMovieController
+                          .toptrendingmovie.value.results[index].id
+                          .toString());
+                      Get.back();
                       Navigator.push(
                           context,
                           PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
                                     DetailsScreens(
-                              urlImageDetails: listPosterCard[index]
-                                  ["urlImage"],
+                              moviedetail: controller.moviedetail.value,
                             ),
                           ));
                     },

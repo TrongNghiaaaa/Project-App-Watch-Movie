@@ -1,18 +1,22 @@
 import 'package:app_watch_movie/configs/constant.dart';
+import 'package:app_watch_movie/controller/movie_controller.dart';
+import 'package:app_watch_movie/data/models/details_movie.dart';
 import 'package:app_watch_movie/presentation/screens/details/component/list_cast.dart';
 
 import 'package:app_watch_movie/presentation/screens/details/content_tabbar_details.dart';
 import 'package:app_watch_movie/presentation/screens/home/component/rowcontend.dart';
 import 'package:app_watch_movie/presentation/screens/reviews/reviewdetails.dart';
+import 'package:app_watch_movie/styles/Image_styles/ui_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class DetailsScreens extends StatefulWidget {
-  final String urlImageDetails;
+  final MovieDetails moviedetail;
 
   const DetailsScreens({
     super.key,
-    required this.urlImageDetails,
+    required this.moviedetail,
   });
 
   @override
@@ -104,19 +108,24 @@ class DetailMovieRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const IntrinsicHeight(
+    final MovieController controller = Get.find();
+    return IntrinsicHeight(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RowContent(
-              svgurl: "assets/images/CalendarBlank.svg", content: "2021"),
-          VerticalDivider(
+              svgurl: "assets/images/CalendarBlank.svg",
+              content: controller.moviedetail.value.releaseDate),
+          const VerticalDivider(
             thickness: 2,
             color: Colors.white,
           ),
-          RowContent(svgurl: "assets/images/Clock.svg", content: "148 Minutes"),
-          VerticalDivider(),
-          RowContent(svgurl: "assets/images/Ticket.svg", content: "Action"),
+          const RowContent(
+              svgurl: "assets/images/Clock.svg", content: "148 Minutes"),
+          const VerticalDivider(),
+          RowContent(
+              svgurl: "assets/images/Ticket.svg",
+              content: controller.moviedetail.value.genres[0].name),
         ],
       ),
     );
@@ -140,8 +149,8 @@ class TitleCoverWidget extends StatelessWidget {
           borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(14),
               bottomRight: Radius.circular(14)),
-          child: Image.asset(
-            widget.urlImageDetails,
+          child: Image.network(
+            UIData.urlImageOriginal + widget.moviedetail.backdropPath!,
             fit: BoxFit.cover,
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.27,
@@ -156,20 +165,20 @@ class TitleCoverWidget extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    widget.urlImageDetails,
+                  child: Image.network(
+                    UIData.urlImageOriginal + widget.moviedetail.posterPath!,
                     height: 120,
                     width: 95,
                     fit: BoxFit.cover,
                   ),
                 ),
-                const Column(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Flexible(
                       child: Text(
-                        "Spiderman No Way Home",
-                        style: TextStyle(
+                        widget.moviedetail.title,
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ),
